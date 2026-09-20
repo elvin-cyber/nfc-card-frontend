@@ -1,4 +1,7 @@
-const API_BASE=(import.meta.env.VITE_API_BASE_URL||"http://localhost:5000/api").replace(/\/$/,"");
+const API_BASE = (
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://nfc-card-backend-irj1.onrender.com/api"
+).replace(/\/$/, "");
 async function request(path,options={}){
   const {suppressToast,...fetchOptions}=options;
   try{
