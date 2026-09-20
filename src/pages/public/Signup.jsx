@@ -1,0 +1,14 @@
+import { ArrowRight, Badge, CheckCircle2, Moon, Sun } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../../auth/AuthContext";
+import { useTheme } from "../../theme/ThemeContext";
+
+export default function Signup() {
+  const { signup } = useAuth(); const { theme, toggleTheme } = useTheme(); const navigate = useNavigate();
+  const [form, setForm] = useState({ name: "", email: "", password: "", confirm: "" }); const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
+  const submit = async e => { e.preventDefault(); setError(""); if (form.password !== form.confirm) return setError("Passwords do not match."); setBusy(true); try { await signup(form.name, form.email, form.password); navigate("/dashboard", { replace:true }); } catch(err) { setError(err.message); } finally { setBusy(false); } };
+  return <div className="login-page signup-page"><button className="theme-toggle login-theme" onClick={toggleTheme}>{theme === "light" ? <Moon size={17} /> : <Sun size={17} />} {theme === "light" ? "Dark mode" : "Light mode"}</button><div className="login-brand"><div className="brand-mark large"><Badge size={25} /></div><div><strong>NFC Connect</strong><span>Personalised digital identity</span></div></div>
+    <form className="login-card" onSubmit={submit}><div className="login-icon"><CheckCircle2 size={22} /></div><div className="eyebrow">GET YOUR NFC CARD</div><h1>Create your digital identity.</h1><p className="login-copy">Create your account first. Then add your contact details and request your personalised NFC card from your dashboard.</p>{error && <div className="error-box">{error}</div>}
+      <label className="field"><span>Full name</span><input required value={form.name} onChange={e=>setForm({...form,name:e.target.value})} placeholder="Your name" autoComplete="name" /></label><label className="field"><span>Email</span><input required type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} placeholder="you@example.com" autoComplete="email" /></label><label className="field"><span>Password</span><input required minLength={8} type="password" value={form.password} onChange={e=>setForm({...form,password:e.target.value})} placeholder="At least 8 characters" autoComplete="new-password" /></label><label className="field"><span>Confirm password</span><input required minLength={8} type="password" value={form.confirm} onChange={e=>setForm({...form,confirm:e.target.value})} placeholder="Repeat your password" autoComplete="new-password" /></label><button className="btn btn-primary btn-wide" disabled={busy}>{busy ? "Creating account…" : <>Create account <ArrowRight size={17} /></>}</button><p className="auth-switch">Already have an account? <Link to="/login">Sign in</Link></p></form></div>;
+}
