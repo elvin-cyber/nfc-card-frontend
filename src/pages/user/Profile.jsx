@@ -218,9 +218,25 @@ export default function Profile() {
           <div><h2>{profileMode==="PERSONAL" ? "Edit my personal profile" : "Edit my office profile"}</h2><p>These details are stored separately and are shown by the matching NFC card.</p></div>
         </div>
 
-        <div className="cover-upload" style={form.coverPhoto ? { backgroundImage:`url(${form.coverPhoto})` } : {}}>
-          <label className="photo-upload cover"><Camera size={16}/><span>Change cover photo</span><input type="file" accept="image/*" onChange={e => upload(e,"coverPhoto")}/></label>
-        </div>
+        <div
+  className="cover-upload"
+  style={
+    form.coverPhoto
+      ? { backgroundImage: `url(${form.coverPhoto})` }
+      : {}
+  }
+>
+  <label className="photo-upload cover">
+    <Camera size={16} />
+    <span>Change cover photo</span>
+
+    <input
+      type="file"
+      accept="image/*"
+      onChange={(e) => upload(e, "coverPhoto")}
+    />
+  </label>
+</div>
 
         <div className="profile-photo-upload">
           <div className="profile-avatar-large photo-avatar profile-photo-big" style={form.photo ? {backgroundImage:`url(${form.photo})`} : {}}>
