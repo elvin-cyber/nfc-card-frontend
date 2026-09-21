@@ -259,3 +259,57 @@ object-fit: cover;
 display: block;
 border-radius: inherit;
 }
+
+
+/* =========================================================
+   LARGER COVER PHOTO - USER PROFILE + PUBLIC PROFILE
+   ========================================================= */
+
+/* User Profile cover */
+.cover-upload {
+  height: 260px !important;
+  min-height: 260px;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Public Profile cover */
+.profile-cover {
+  height: 260px !important;
+  min-height: 260px;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Public profile card should allow the larger cover */
+.public-profile-card {
+  overflow: hidden;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .cover-upload {
+    height: 220px !important;
+    min-height: 220px;
+  }
+
+  .profile-cover {
+    height: 220px !important;
+    min-height: 220px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 430px) {
+  .cover-upload {
+    height: 190px !important;
+    min-height: 190px;
+  }
+
+  .profile-cover {
+    height: 190px !important;
+    min-height: 190px;
+  }
+}
