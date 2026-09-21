@@ -192,3 +192,70 @@
 .public-preview-contacts small { color:var(--muted); font-size:9px; }
 .public-preview-contacts strong { font-size:11px; word-break:break-word; }
 @media(max-width:760px){.public-preview-contacts{grid-template-columns:1fr}.page-header-actions{flex-wrap:wrap}}
+
+
+/* Square profile photos - User Profile + Public Profile */
+.profile-avatar-large,
+.profile-photo-big,
+.photo-avatar,
+.public-avatar,
+.mini-avatar {
+aspect-ratio: 1 / 1;
+border-radius: 12px;
+object-fit: cover;
+overflow: hidden;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+/* User profile photo */
+.profile-photo-big {
+width: 112px;
+height: 112px;
+}
+
+/* User profile photo on smaller screens */
+@media (max-width: 650px) {
+.profile-photo-big {
+width: 96px;
+height: 96px;
+}
+}
+
+/* Public profile photo */
+.public-avatar {
+width: 92px;
+height: 92px;
+margin-left: 25px;
+margin-right: 0;
+}
+
+/* Public profile photo on small screens */
+@media (max-width: 430px) {
+.public-avatar {
+width: 92px;
+height: 92px;
+margin-left: 18px;
+}
+}
+
+/* Landing/public preview profile photo */
+.mini-avatar {
+width: 80px;
+height: 80px;
+border-radius: 12px;
+}
+
+/* Make uploaded images fill the square without distortion */
+.photo-avatar img,
+.profile-avatar-large img,
+.profile-photo-big img,
+.public-avatar img,
+.mini-avatar img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+border-radius: inherit;
+}
