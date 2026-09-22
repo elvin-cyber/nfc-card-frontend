@@ -1455,8 +1455,8 @@ tbody tr:hover td {
 }
 
 .public-avatar {
-  width: 92px;
-  height: 92px;
+  width: 140px;
+  height: 140px;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   border: 5px solid var(--surface);
@@ -1467,7 +1467,7 @@ tbody tr:hover td {
   font-family: "Space Grotesk";
   font-weight: 700;
   font-size: 22px;
-  margin: -46px 0 0 25px;
+  margin: -70px 0 0 25px;
   position: relative;
   overflow: hidden;
   background-size: cover;
@@ -3795,10 +3795,9 @@ tbody tr:hover td {
   }
 
   .public-avatar {
-    width: 92px;
-    height: 92px;
-    margin-left: 18px;
-  }
+  width: 140px;
+  height: 140px;
+}
 
   .public-actions {
     flex-direction: column;
